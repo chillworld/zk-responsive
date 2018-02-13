@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="spring boot" contentType="text/html;charset=UTF-8" id="mainframe" docType="html" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul                                                 http://www.zkoss.org/2005/zul/zul.xsd">
+    <window id="root" border="normal" height="100%" viewModel="@id('indexVM') @init('be.chillworld.vm.IndexVM')">
+        <style>
+            .z-center-body, .z-west-body, .z-window, .z-window-content {
+                padding:0px;
+            }
+        </style>
+        <borderlayout>
+            <north visible="@load(not indexVM.mobile)">
+                <if test="@load(not indexVM.mobile)">
+                   <apply template="menu"/>
+                </if>
+            </north>
+            <east>
+            </east>
+            <south>
+                <div>
+                    <if test="@load(not indexVM.mobile)">
+                        <label value="Tip"/>
+                    </if>
+                    <if test="@load(indexVM.mobile)">
+                        <label value="This is the mobile footer"/>
+                    </if>
+                </div>
+            </south>
+            <west width="140px" visible="@load(indexVM.mobile)" splittable="true" collapsible="true" open="false">
+                <if test="@load(indexVM.mobile)">
+                    <apply template="menu"/>
+                </if>
+            </west>
+            <center id="center" border="normal" sclass="T_center">
+                <div>
+                <apply templateURI="@load(indexVM.url)" height="100%" style="overflow:auto" />
+                </div>
+            </center>
+        </borderlayout>
+        <template name="menu">
+            <menubar autodrop="true" orient="@load(indexVM.mobile?'vertical':'horizontal')">
+                <menuitem label="Home" onClick="alert(self.label)" />
+                <menu label="Contact us">
+                    <menupopup>
+                        <menuitem label="Mail" onClick="alert(self.label)" />
+                        <menuitem label="Phone" onClick="alert(self.label)" />
+                    </menupopup>
+                </menu>
+            </menubar>
+        </template>
+    </window>
+</zk>
+

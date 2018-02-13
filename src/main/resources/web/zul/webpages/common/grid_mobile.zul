@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid  model="@init(vm.items)">
+    <columns>
+        <column width="40px" />
+        <column label="Name" sort="auto" align="center" hflex="1"/>
+    </columns>
+    <rows>
+        <template name="model" var="item">
+            <row>
+                <detail>
+                    <vlayout>
+                        <div>
+                            <label value="Brand:" />
+                            <label value="${item.brand}"/>
+                        </div>
+                        <div>
+                            <label value="Quantity:" />
+                            <label value="${item.quantity}"/>
+                        </div>
+                        <div>
+                            <label value="Price:" />
+                             <label value="${item.price}"/>
+                        </div>
+                    </vlayout>
+                </detail>
+                <label value="${item.name}" />
+            </row>
+        </template>
+    </rows>
+</grid>
