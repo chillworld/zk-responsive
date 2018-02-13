@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?page title="spring boot" contentType="text/html;charset=UTF-8" id="mainframe" docType="html" ?>
 <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul                                                 http://www.zkoss.org/2005/zul/zul.xsd">
-    <window border="normal" viewModel="@id('vm') @init('be.chillworld.vm.template.TemplateVM')">
+    <div border="normal" viewModel="@id('vm') @init('be.chillworld.vm.template.TemplateVM')">
         <apply template="@load(indexVM.template)"/>
         <template name="mobile">
             <apply templateURI="~./zul/webpages/common/grid_mobile.zul"/>
@@ -9,6 +9,6 @@
         <template name="desktop">
             <apply templateURI="~./zul/webpages/common/grid_desktop.zul"/>
         </template>
-    </window>
+    </div>
 </zk>
 
